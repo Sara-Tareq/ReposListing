@@ -1,7 +1,6 @@
-package com.example.reposlisting
+package com.example.reposlisting.data
 
 import androidx.lifecycle.MutableLiveData
-import com.example.reposlisting.data.Repo
 import com.example.reposlisting.network.RepoWebService
 import retrofit2.Call
 import retrofit2.Callback
