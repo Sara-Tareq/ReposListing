@@ -1,6 +1,5 @@
 package com.example.reposlisting.fragments
 
-import android.database.Observable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View

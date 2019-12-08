@@ -6,8 +6,6 @@ import com.example.reposlisting.network.RepoWebService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
-import kotlin.collections.List
 
 object DataRepository {
     private val repoService: RepoWebService = RepoWebService.create()

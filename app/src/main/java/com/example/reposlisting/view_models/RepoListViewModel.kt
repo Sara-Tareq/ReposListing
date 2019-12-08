@@ -1,6 +1,5 @@
 package com.example.reposlisting.view_models
 
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.reposlisting.DataRepository
