@@ -1,7 +1,9 @@
 package com.example.reposlisting.data
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
+@JsonClass(generateAdapter = true)
 class Repo {
     @field:Json(name = "id")
     var id: Int = 0
