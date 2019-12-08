@@ -23,6 +23,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding{
+        enabled true
+    }
 }
 
 dependencies {
@@ -41,4 +44,5 @@ dependencies {
     kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
     //  Test helpers for LiveData
     testImplementation "androidx.arch.core:core-testing:$lifecycle_version"
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
 }
