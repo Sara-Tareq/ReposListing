@@ -38,6 +38,15 @@ class RepoDetailsFragment: Fragment() {
             mDetailsBinding.repo = it
         })
 
+        mDetailsBinding.bookmark.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(v: View?) {
+                if(viewModel.repo.value != null) {
+                    viewModel.repo.value!!.isBookmarked = !viewModel.repo.value!!.isBookmarked
+                    viewModel.repo.postValue(viewModel.repo.value)
+                }
+            }
+        })
+
 
     }
 
