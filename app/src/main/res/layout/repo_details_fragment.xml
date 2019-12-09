@@ -6,9 +6,9 @@
 
         <import type="android.view.View" />
 
-        <variable
-            name="repoViewModel"
-            type="com.example.reposlisting.view_models.RepoViewModel" />
+
+        <variable name="repo"
+            type="com.example.reposlisting.data.Repo"/>
 
     </data>
 
@@ -19,7 +19,7 @@
         android:padding="10dp">
 
         <include layout="@layout/repo_data"
-            app:repo = "@{repoViewModel.repo}" />
+            app:repo = "@{repo}" />
 
         <TextView
             android:id="@+id/repo_desc"
@@ -27,7 +27,8 @@
             android:layout_height="wrap_content"
             android:paddingTop="20dp"
             android:paddingBottom="20dp"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:text="@{repo.description}"/>
 
 
         <ImageView
@@ -35,7 +36,8 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/ic_bookmark" />
+            android:src="@drawable/ic_bookmark"
+            app:imageSrc="@{repo.bookmarked}"/>
 
     </LinearLayout>
 </layout>

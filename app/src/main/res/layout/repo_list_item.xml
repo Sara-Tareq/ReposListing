@@ -7,12 +7,15 @@
         <variable
             name="repo"
             type="com.example.reposlisting.data.Repo" />
+        <variable name="callback"
+            type="com.example.reposlisting.ui.RepoClickCallback"/>
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:onClick="@{() ->  callback.onClick(repo)}"
         android:padding="10dp">
 
         <ImageView

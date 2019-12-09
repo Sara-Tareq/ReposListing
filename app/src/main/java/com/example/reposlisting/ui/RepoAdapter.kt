@@ -9,16 +9,26 @@ import com.example.reposlisting.R
 import com.example.reposlisting.data.Repo
 import com.example.reposlisting.databinding.RepoListItemBinding
 
-class RepoAdapter() : RecyclerView.Adapter<RepoAdapter.RepoViewHolder>() {
+class RepoAdapter(repoClickCallback: RepoClickCallback) :
+    RecyclerView.Adapter<RepoAdapter.RepoViewHolder>() {
 
     private var reposList: List<Repo>? = null
+    private val mCallback: RepoClickCallback = repoClickCallback
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepoViewHolder {
-       return RepoViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context),R.layout.repo_list_item,parent,false))
+
+        val repoListItemBinding: RepoListItemBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(parent.context),
+            R.layout.repo_list_item,
+            parent,
+            false
+        )
+        repoListItemBinding.callback = mCallback
+        return RepoViewHolder(repoListItemBinding)
     }
 
     override fun getItemCount(): Int {
-       return reposList?.size ?:0
+        return reposList?.size ?: 0
     }
 
     override fun onBindViewHolder(holder: RepoViewHolder, position: Int) {
@@ -33,16 +43,16 @@ class RepoAdapter() : RecyclerView.Adapter<RepoAdapter.RepoViewHolder>() {
 
     }
 
-    fun setReposList(reposDataList: List<Repo>){
+    fun setReposList(reposDataList: List<Repo>) {
 
-        if(reposList == null){
+        if (reposList == null) {
             reposList = reposDataList
-            notifyItemRangeInserted(0,reposDataList.size)
-        }else{
+            notifyItemRangeInserted(0, reposDataList.size)
+        } else {
 
             val result = DiffUtil.calculateDiff(object : DiffUtil.Callback() {
                 override fun getOldListSize(): Int {
-                    return reposList?.size ?:0
+                    return reposList?.size ?: 0
                 }
 
                 override fun getNewListSize(): Int {
