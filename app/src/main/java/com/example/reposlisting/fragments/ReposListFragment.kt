@@ -19,7 +19,7 @@ class ReposListFragment : Fragment() {
     private lateinit var mListBinding: RepoListFragmentBinding
     private  val repoAdapter: RepoAdapter = RepoAdapter()
 
-    val viewModel :RepoListViewModel by viewModels()
+    private val viewModel :RepoListViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,

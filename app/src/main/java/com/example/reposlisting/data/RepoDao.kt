@@ -1,19 +1,20 @@
 package com.example.reposlisting.data
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.room.*
 
 @Dao
 interface RepoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertAll(repos:List<Repo>)
+    suspend fun insertAll(repos:List<Repo>)
 
     @Query("SELECT * FROM repositories where id = :repoId")
-    fun loadRepo(repoId: Int): LiveData<Repo>
+    suspend fun loadRepo(repoId: Int): Repo
 
     @Query("SELECT * FROM repositories")
-    fun loadAllRepos(): LiveData<List<Repo>>
+    suspend fun loadAllRepos(): List<Repo>
 
     @Update
-    fun updateRepo(repo: Repo)
+    suspend fun updateRepo(repo: Repo)
 }
