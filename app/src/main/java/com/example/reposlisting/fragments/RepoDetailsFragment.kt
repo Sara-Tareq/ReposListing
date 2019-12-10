@@ -36,6 +36,7 @@ class RepoDetailsFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.repo.observe(this, Observer {
             mDetailsBinding.repo = it
+            viewModel.updateRepoDetails(it)
         })
 
         mDetailsBinding.bookmark.setOnClickListener(object : View.OnClickListener{

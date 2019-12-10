@@ -46,14 +46,12 @@ class ReposListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel.repoDataList.observe(this,Observer<List<Repo>>() {
-            mListBinding.isLoading = false
-            repoAdapter.setReposList(it)
+        viewModel.repoDataList?.observe(this,Observer<List<Repo>>() {
+            if(it != null && it.isNotEmpty()) {
+                mListBinding.isLoading = false
+                repoAdapter.setReposList(it)
+            }
 
         })
-    }
-
-    private fun showDetails(repo: Repo){
-
     }
 }
