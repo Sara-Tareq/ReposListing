@@ -2,9 +2,6 @@ package com.example.reposlisting.data
 
 import android.content.Context
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
 import com.example.reposlisting.network.RepoWebService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -22,7 +19,6 @@ class DataRepository private constructor(context: Context) : CoroutineScope {
 
     private val repoService: RepoWebService = RepoWebService.create()
     private val repoDataList: LiveData<List<Repo>>?
-    private var repoDetails: MediatorLiveData<Repo>? = MediatorLiveData()
     private var repoDao: RepoDao?
 
     init {
