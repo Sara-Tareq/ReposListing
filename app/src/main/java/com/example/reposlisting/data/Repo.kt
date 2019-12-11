@@ -25,6 +25,10 @@ class Repo() : Parcelable {
 
     var isBookmarked: Boolean = false
 
+    constructor(id:Int):this(){
+        this.id = id
+    }
+
     fun getStarsCountString(): String {
         return starsCount.toString()
     }
@@ -56,4 +60,19 @@ class Repo() : Parcelable {
         writeString(description)
         writeInt((if (isBookmarked) 1 else 0))
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is Repo) return false
+
+        if (id != other.id) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        return id
+    }
+
+
 }

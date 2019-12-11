@@ -57,7 +57,7 @@ class DataRepository private constructor(context: Context) : CoroutineScope {
 
         if (reposList != null)
             withContext(Dispatchers.IO) {
-                repoDao?.insertAll(reposList)
+                repoDao?.insertOrUpdate(reposList)
             }
 
     }
